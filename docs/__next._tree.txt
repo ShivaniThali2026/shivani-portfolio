@@ -1,4 +1,5 @@
-:HL["/shivani-portfolio/_next/static/chunks/05ju9mhbfwika.css","style"]
+:HL["/shivani-portfolio/_next/static/chunks/0ywdqkf-pttfj.css","style"]
+:HL["/shivani-portfolio/profile/profile.png","image"]
 :HL["/shivani-portfolio/photography/photo-01.png","image"]
 :HL["/shivani-portfolio/photography/photo-05.png","image"]
 :HL["/shivani-portfolio/photography/photo-09.png","image"]
@@ -11,4 +12,4 @@
 :HL["/shivani-portfolio/photography/photo-11.png","image"]
 :HL["/shivani-portfolio/photography/photo-12.png","image"]
 :HL["/shivani-portfolio/photography/photo-07.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"sllt-P8j3QMc-E48pH_uo"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"gjvMnIkbt91eoHHr07-78"}
