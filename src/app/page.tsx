@@ -102,44 +102,74 @@ const tools = [
 
 export default function Home() {
   return (
-    <main className="site-shell">
-      <header className="nav">
-        <a href="#top" className="brand">ST <span>·</span> Marketing Strategy</a>
-
-        <nav className="nav-links">
+    <main className="portfolio-shell">
+      <header className="top-nav">
+        <a className="brand" href="#home">Shivani</a>
+        <nav>
           <a href="#about">About</a>
-          <a href="#case-studies">Work</a>
-          <a href="#academic">Projects</a>
-          <a href="#creative-lens">Creative Lens</a>
+          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#creative">Creative</a>
           <a href="#contact">Contact</a>
         </nav>
-
-        <a href="#contact" className="nav-cta">Get in touch ↗</a>
       </header>
 
-      <section id="top" className="hero grid-bg">
-        <p className="eyebrow">Marketing Strategy · Brand Growth · Digital Campaigns</p>
-        <h1>Strategy, analytics<br />and creative stories<br /><span>built to grow.</span></h1>
-        <p className="hero-copy">
-          Shivani Thali is a marketing and digital strategy professional connecting research,
-          campaigns, proposals, content, and visual storytelling into practical growth systems.
-        </p>
+      <nav className="floating-nav" aria-label="section navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#creative">Creative</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-        <div className="metrics">
-          {metrics.map((metric) => (
-            <article className="metric-card" key={metric.label}>
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
-              <p>{metric.detail}</p>
-            </article>
-          ))}
+      <section id="home" className="home-section section">
+        <div className="home-social">
+          <a href="https://linkedin.com/in/shivani-thali" target="_blank">LinkedIn</a>
+          <a href="mailto:Shivani.thali@gmail.com">Email</a>
         </div>
+
+        <div className="home-content">
+          <p className="section-kicker">Marketing Strategy · Growth · Creative Storytelling</p>
+          <h1>Hi, I’m Shivani Thali</h1>
+          <h2>Marketing strategist building growth-focused digital stories.</h2>
+          <p>
+            I connect research, campaigns, proposals, content, and visual storytelling into practical
+            growth systems for B2B, public-sector, and creative marketing work.
+          </p>
+          <a href="#contact" className="primary-button">Contact Me</a>
+        </div>
+
+        <div className="home-visual">
+  <div className="profile-image-wrapper">
+    <img
+      src="/shivani-portfolio/profile/profile.png"
+      alt="Shivani Thali"
+      className="profile-image"
+    />
+  </div>
+</div>
       </section>
 
-      <SectionHeader id="about" label="About" />
-      <section className="about-section">
-        <h2>A marketing strategist with a research mindset and a visual communication background.</h2>
-        <div className="about-copy">
+      <section className="metric-row">
+        {metrics.map((metric) => (
+          <article key={metric.label}>
+            <strong>{metric.value}</strong>
+            <span>{metric.label}</span>
+            <p>{metric.detail}</p>
+          </article>
+        ))}
+      </section>
+
+      <SectionTitle id="about" title="About Me" subtitle="My introduction" />
+
+      <section className="about-grid section-narrow">
+        <div className="about-card about-image-card">
+          <span>Strategy</span>
+          <strong>Research + Campaigns + Creative Direction</strong>
+        </div>
+
+        <div className="about-text">
           <p>
             Shivani’s work sits at the intersection of growth marketing, market research, SEO,
             proposal strategy, campaign reporting, and creative content development.
@@ -148,115 +178,117 @@ export default function Home() {
             Her portfolio combines professional marketing systems, academic strategy projects,
             and creative media work to show both analytical thinking and storytelling range.
           </p>
+
+          <div className="about-stats">
+            <div><strong>3%</strong><span>CTR Lift</span></div>
+            <div><strong>33%</strong><span>Contract Growth</span></div>
+            <div><strong>30+</strong><span>Projects Managed</span></div>
+          </div>
         </div>
       </section>
 
-      <SectionHeader id="case-studies" label="Professional Case Studies" />
-      <section className="story-list">
+      <SectionTitle id="work" title="Case Studies" subtitle="Professional work" />
+
+      <section className="work-grid section-narrow">
         {caseStories.map((item) => (
-          <article className="story-card" key={item.number}>
-            <div className="story-index">{item.number}</div>
-            <div className="story-main">
-              <p className="eyebrow small">{item.eyebrow}</p>
-              <h3>{item.title}</h3>
-              <p className="story-lead">{item.lead}</p>
-              <p className="story-body">{item.story}</p>
-              <div className="impact-box">{item.impact}</div>
-              <TagList items={item.tools} />
-            </div>
+          <article className="work-card" key={item.number}>
+            <span className="work-number">{item.number}</span>
+            <p className="section-kicker">{item.eyebrow}</p>
+            <h3>{item.title}</h3>
+            <p>{item.lead}</p>
+            <div className="work-detail">{item.impact}</div>
+            <TagList items={item.tools} />
           </article>
         ))}
       </section>
 
-      <SectionHeader id="academic" label="Academic & Strategy Projects" />
-      <section className="project-grid">
+      <SectionTitle id="projects" title="Academic Projects" subtitle="Strategy explorations" />
+
+      <section className="projects-slider section-narrow">
         {academicProjects.map((project) => (
-          <article className="project-card" key={project.title}>
-            <p className="eyebrow small">{project.eyebrow}</p>
+          <article className="project-slide" key={project.title}>
+            <p className="section-kicker">{project.eyebrow}</p>
             <h3>{project.title}</h3>
             <p>{project.description}</p>
             <TagList items={project.tools} />
             {project.link && (
               <a href={project.link} target="_blank" className="text-link">
-                View project ↗
+                View Project →
               </a>
             )}
           </article>
         ))}
       </section>
 
-      <SectionHeader id="creative-lens" label="Creative Lens" />
-      <section className="creative-lens-section">
-        <div className="creative-lens-copy">
-          <p className="eyebrow small">DSLR · Mobile Photography · Video Editing</p>
-          <h2>Through the lens</h2>
-          <p>
-            A compact visual section combining photography and Sony Vegas Pro editing to show
-            Shivani’s creative direction, composition, pacing, and visual storytelling range.
-          </p>
+      <SectionTitle id="creative" title="Creative Lens" subtitle="Photography and video editing" />
 
+      <section className="creative-layout section-narrow">
+        <div className="creative-info">
+          <p className="section-kicker">DSLR · Mobile Photography · Sony Vegas Pro</p>
+          <h3>Visual storytelling that supports the strategy.</h3>
+          <p>
+            A compact visual system combining DSLR/mobile photography and Sony Vegas Pro editing
+            to show creative direction, composition, pacing, and visual storytelling range.
+          </p>
           <a
             href="https://drive.google.com/file/d/146FGRchDGbR5a0kCjD2SeaEDhBuc69rM/view?usp=drive_link"
             target="_blank"
-            className="creative-button"
+            className="primary-button"
           >
-            Watch Sony Vegas Pro edit ↗
+            Watch Video Edit
           </a>
-
-          <div className="video-note">
-            <span>Video Editing</span>
-            <p>Sony Vegas Pro · visual rhythm · transitions · cinematic pacing</p>
-          </div>
         </div>
 
-        <div className="compact-photo-grid">
+        <div className="photo-stack">
           {photoMoments.map((photo) => (
-            <figure className={photo.featured ? "compact-photo featured-photo" : "compact-photo"} key={photo.title}>
+            <figure className={photo.featured ? "photo-item photo-featured" : "photo-item"} key={photo.title}>
               <img src={photo.image} alt={photo.caption} />
-              <figcaption>
-                <span>{photo.title}</span>
-                <p>{photo.caption}</p>
-              </figcaption>
+              <figcaption>{photo.title}</figcaption>
             </figure>
           ))}
         </div>
       </section>
 
-      <SectionHeader id="tools" label="Tools & Platforms" />
-      <section className="tools-grid">
+      <SectionTitle id="skills" title="Tools & Skills" subtitle="Platforms and production" />
+
+      <section className="skills-grid section-narrow">
         {tools.map(([group, items]) => (
-          <article className="tool-column" key={group as string}>
+          <article className="skill-card" key={group as string}>
             <h3>{group}</h3>
             <TagList items={items as string[]} />
           </article>
         ))}
       </section>
 
-      <SectionHeader id="contact" label="Contact" />
-      <section className="contact-section">
-        <h2>Let’s build something that <span>grows.</span></h2>
-        <div className="contact-cards">
-          <a href="mailto:Shivani.thali@gmail.com" className="contact-card">
-            <small>Email</small>
+      <section id="contact" className="contact-section section-narrow">
+        <div>
+          <p className="section-kicker">Contact Me</p>
+          <h2>Have a project or role in mind?</h2>
+          <p>Let’s connect around marketing strategy, growth, campaigns, or creative storytelling.</p>
+        </div>
+
+        <div className="contact-links">
+          <a href="mailto:Shivani.thali@gmail.com">
+            <span>Email</span>
             <strong>Shivani.thali@gmail.com</strong>
           </a>
-          <a href="https://linkedin.com/in/shivani-thali" target="_blank" className="contact-card">
-            <small>LinkedIn</small>
+          <a href="https://linkedin.com/in/shivani-thali" target="_blank">
+            <span>LinkedIn</span>
             <strong>linkedin.com/in/shivani-thali</strong>
           </a>
         </div>
       </section>
 
-      <footer>© 2025 Shivani Thali · Marketing Strategy · Growth · Creative Storytelling</footer>
+      <footer>© 2025 Shivani Thali · Marketing Strategy Portfolio</footer>
     </main>
   );
 }
 
-function SectionHeader({ id, label }: { id: string; label: string }) {
+function SectionTitle({ id, title, subtitle }: { id: string; title: string; subtitle: string }) {
   return (
-    <div id={id} className="section-header">
-      <span>{label}</span>
-      <div />
+    <div id={id} className="section-title">
+      <p>{subtitle}</p>
+      <h2>{title}</h2>
     </div>
   );
 }
