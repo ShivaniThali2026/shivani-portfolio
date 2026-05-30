@@ -80,12 +80,18 @@ const academicProjects = [
 ];
 
 const photoMoments = [
-  "Macro details",
-  "Travel frames",
-  "Architecture",
-  "Night scenes",
-  "Nature studies",
-  "Candid moments",
+  { title: "Macro Detail", caption: "Daisy macro study", image: "/shivani-portfolio/photography/photo-01.png", featured: true },
+  { title: "Frames", caption: "Architectural framing", image: "/shivani-portfolio/photography/photo-05.png" },
+  { title: "Foliage", caption: "Black and white nature study", image: "/shivani-portfolio/photography/photo-09.png" },
+  { title: "Light & Motion", caption: "Fire composition", image: "/shivani-portfolio/photography/photo-02.png" },
+  { title: "City Night", caption: "Candid city moment", image: "/shivani-portfolio/photography/photo-06.png" },
+  { title: "Documentary", caption: "Sheep transport moment", image: "/shivani-portfolio/photography/photo-10.png" },
+  { title: "Place", caption: "Rainbow and architecture", image: "/shivani-portfolio/photography/photo-03.png" },
+  { title: "Night Scene", caption: "Moon reflection", image: "/shivani-portfolio/photography/photo-04.png" },
+  { title: "Texture", caption: "Shell and hand detail", image: "/shivani-portfolio/photography/photo-08.png" },
+  { title: "Landscape", caption: "Valley sunset silhouette", image: "/shivani-portfolio/photography/photo-11.png" },
+  { title: "Natural Frame", caption: "Boat through circular frame", image: "/shivani-portfolio/photography/photo-12.png" },
+  { title: "Candid", caption: "Cat close-up", image: "/shivani-portfolio/photography/photo-07.png" },
 ];
 
 const tools = [
@@ -98,28 +104,27 @@ export default function Home() {
   return (
     <main className="site-shell">
       <header className="nav">
-        <a href="#top" className="brand">
-          ST <span>·</span> Marketing Strategy
-        </a>
+        <a href="#top" className="brand">ST <span>·</span> Marketing Strategy</a>
+
         <nav className="nav-links">
           <a href="#about">About</a>
           <a href="#case-studies">Work</a>
           <a href="#academic">Projects</a>
-          <a href="#creative">Creative</a>
+          <a href="#creative-lens">Creative Lens</a>
           <a href="#contact">Contact</a>
         </nav>
+
         <a href="#contact" className="nav-cta">Get in touch ↗</a>
       </header>
 
       <section id="top" className="hero grid-bg">
         <p className="eyebrow">Marketing Strategy · Brand Growth · Digital Campaigns</p>
-        <h1>
-          Strategy, analytics<br />and creative stories<br /><span>built to grow.</span>
-        </h1>
+        <h1>Strategy, analytics<br />and creative stories<br /><span>built to grow.</span></h1>
         <p className="hero-copy">
           Shivani Thali is a marketing and digital strategy professional connecting research,
           campaigns, proposals, content, and visual storytelling into practical growth systems.
         </p>
+
         <div className="metrics">
           {metrics.map((metric) => (
             <article className="metric-card" key={metric.label}>
@@ -133,9 +138,7 @@ export default function Home() {
 
       <SectionHeader id="about" label="About" />
       <section className="about-section">
-        <h2>
-          A marketing strategist with a research mindset and a visual communication background.
-        </h2>
+        <h2>A marketing strategist with a research mindset and a visual communication background.</h2>
         <div className="about-copy">
           <p>
             Shivani’s work sits at the intersection of growth marketing, market research, SEO,
@@ -174,50 +177,47 @@ export default function Home() {
             <p>{project.description}</p>
             <TagList items={project.tools} />
             {project.link && (
-              <a href={project.link} target="_blank" className="text-link">View project ↗</a>
+              <a href={project.link} target="_blank" className="text-link">
+                View project ↗
+              </a>
             )}
           </article>
         ))}
       </section>
 
-      <SectionHeader id="creative" label="Creative Work" />
-      <section className="creative-section">
-        <article className="video-card">
-          <div>
-            <p className="eyebrow small">Video Editing</p>
-            <h3>Sony Vegas Pro Edit</h3>
-            <p>
-              A creative editing sample focused on pacing, transitions, visual rhythm, and storytelling flow.
-            </p>
-            <TagList items={["Sony Vegas Pro", "Video Editing", "Creative Direction"]} />
-            <a
-              href="https://drive.google.com/file/d/146FGRchDGbR5a0kCjD2SeaEDhBuc69rM/view?usp=drive_link"
-              target="_blank"
-              className="creative-button"
-            >
-              Watch edit ↗
-            </a>
-          </div>
-          <div className="video-visual">
-            <span>Editing Reel</span>
-            <strong>Visual rhythm · pacing · story</strong>
-          </div>
-        </article>
-      </section>
-
-      <SectionHeader id="photography" label="Visual Storytelling & Photography" />
-      <section className="photo-section">
-        <div className="photo-intro">
-          <h2>Photography as a study in composition, detail, place, and mood.</h2>
+      <SectionHeader id="creative-lens" label="Creative Lens" />
+      <section className="creative-lens-section">
+        <div className="creative-lens-copy">
+          <p className="eyebrow small">DSLR · Mobile Photography · Video Editing</p>
+          <h2>Through the lens</h2>
           <p>
-            A curated creative section for DSLR and mobile photography, highlighting Shivani’s eye for visual storytelling without overpowering the marketing strategy narrative.
+            A compact visual section combining photography and Sony Vegas Pro editing to show
+            Shivani’s creative direction, composition, pacing, and visual storytelling range.
           </p>
+
+          <a
+            href="https://drive.google.com/file/d/146FGRchDGbR5a0kCjD2SeaEDhBuc69rM/view?usp=drive_link"
+            target="_blank"
+            className="creative-button"
+          >
+            Watch Sony Vegas Pro edit ↗
+          </a>
+
+          <div className="video-note">
+            <span>Video Editing</span>
+            <p>Sony Vegas Pro · visual rhythm · transitions · cinematic pacing</p>
+          </div>
         </div>
-        <div className="photo-grid">
-          {photoMoments.map((item, index) => (
-            <article className={`photo-card photo-${index + 1}`} key={item}>
-              <span>{item}</span>
-            </article>
+
+        <div className="compact-photo-grid">
+          {photoMoments.map((photo) => (
+            <figure className={photo.featured ? "compact-photo featured-photo" : "compact-photo"} key={photo.title}>
+              <img src={photo.image} alt={photo.caption} />
+              <figcaption>
+                <span>{photo.title}</span>
+                <p>{photo.caption}</p>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>

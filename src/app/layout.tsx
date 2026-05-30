@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
-  title: "Shivani Thali | Marketing Analytics & Growth Specialist",
-  description: "Portfolio for Shivani Thali, a marketing analytics and growth specialist focused on digital strategy, SEO, campaign analytics, and B2B growth.",
+  title: "Shivani Thali | Marketing Strategy & Creative Growth Portfolio",
+  description:
+    "Portfolio for Shivani Thali, focused on marketing strategy, growth, analytics, campaigns, and creative storytelling.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <Providers>{children}</Providers>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
